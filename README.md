@@ -1,8 +1,29 @@
 # Dogs and Cats Classification
 
-## Prepare Data
+## Dependencies and Installation
+
+### Environments
+
+- Python 3.10.6 + CUDA 11.8
+
+Refer to [DEVICE.md](./DEVICE.md) for more environments
+
+### Install requirements
+
+``` bash
+pip install -r requirements.txt
+```
+
+
+## Prepare
+
+### Data
 
 - Download Dataset from [Kaggle](https://www.kaggle.com/c/dogs-vs-cats) or download processed Dataset from [here]()
+
+### Config
+
+Modify infomation about training in `config.py`
 
 ## TODO
 
