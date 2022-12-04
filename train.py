@@ -7,17 +7,15 @@ from config import *
 from model import init_model
 
 
-def train(train_config, valid_config, test_config):
-    model = init_model(train_config)
+def train(train_config, valid_config):
+    model = init_model(train_config, load_checkpoint = TRAINING_CFG['load_checkpoint'])
     device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
     model.to(device)
 
     train_data = LoadDataset(train_config)
     valid_data = LoadDataset(valid_config)
-    test_data = LoadDataset(test_config)
     train_loader = DataLoader(train_data, batch_size=train_config['batch_size'], shuffle=True)
     valid_loader = DataLoader(valid_data, batch_size=valid_config['batch_size'])
-    test_loader = DataLoader(test_data, batch_size=test_config['batch_size'])
 
     optimizer = torch.optim.Adam(model.parameters(), lr=1e-3)
     loss_fn = torch.nn.CrossEntropyLoss()
@@ -54,10 +52,9 @@ def train(train_config, valid_config, test_config):
 
         if accuracy >= highest_acc:
             highest_acc == accuracy
-            torch.save(model, os.path.join(train_config['model_savepath'] + f'training_epoch_{epoch}.pth'))
+            torch.save(model.state_dict(), os.path.join(train_config['model_savepath'] + f'training_epoch_{epoch}.pth'))
 
 
 if __name__ == '__main__':
     train(train_config = TRAINING_CFG,
-          valid_config=VALID_CFG,
-          test_config=TEST_CFG)
+          valid_config=VALID_CFG)

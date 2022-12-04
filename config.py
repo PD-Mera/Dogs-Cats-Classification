@@ -13,7 +13,8 @@ TRAINING_CFG = {
     'modelname': 'resnet18',
     'epoch': 10, 
     'batch_size': 128,
-    'model_savepath': './weights/'
+    'model_savepath': './weights/',
+    'load_checkpoint': None,
 }
 
 VALID_CFG = {
