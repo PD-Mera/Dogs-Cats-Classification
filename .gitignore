@@ -1,0 +1,10 @@
+__pycache__/
+
+venv*/
+workspace/
+MLIB/
+
+data/
+weights/
+
+*.zip
