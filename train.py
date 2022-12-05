@@ -5,20 +5,28 @@ from torch.utils.data import DataLoader
 from data import LoadDataset
 from config import *
 from model import init_model
+from optimizer import init_optimizer
+from loss import init_loss
+
+
+def init_training_setting(train_config):
+    model = init_model(train_config, load_checkpoint = TRAINING_CFG['load_checkpoint'])
+    device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
+    optimizer = init_optimizer(model, train_config)
+    loss_fn = init_loss()
+
+    return device, model, optimizer, loss_fn
+
 
 
 def train(train_config, valid_config):
-    model = init_model(train_config, load_checkpoint = TRAINING_CFG['load_checkpoint'])
-    device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
-    model.to(device)
-
     train_data = LoadDataset(train_config)
     valid_data = LoadDataset(valid_config)
     train_loader = DataLoader(train_data, batch_size=train_config['batch_size'], shuffle=True)
     valid_loader = DataLoader(valid_data, batch_size=valid_config['batch_size'])
 
-    optimizer = torch.optim.Adam(model.parameters(), lr=1e-3)
-    loss_fn = torch.nn.CrossEntropyLoss()
+    device, model, optimizer, loss_fn = init_training_setting(train_config)
+    model.to(device)
 
     highest_acc = 0
 

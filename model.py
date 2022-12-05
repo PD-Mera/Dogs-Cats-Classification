@@ -8,14 +8,14 @@ from config import *
 
 class ClsfModel():
     def __init__(self):
-        super(ClsfModel).__init__()
+        super(ClsfModel, self).__init__()
         pass
     def forward(self, x):
         return x
 
 
 def init_model(train_config, load_checkpoint = None):
-    assert train_config['modelname'] in MODEL_TYPE, f'"modelname" in `config.py` must in {MODEL_TYPE}'
+    assert train_config['modelname'] in MODEL_AVAILABLE, f'"modelname" in `config.py` must in {MODEL_AVAILABLE}'
     model_name = train_config['modelname']
     if model_name == 'custom':
         model = ClsfModel()
@@ -25,7 +25,7 @@ def init_model(train_config, load_checkpoint = None):
            
         elif model_name == 'resnet50':
             backbone = resnet50(weights=ResNet50_Weights.DEFAULT)
-            
+
         model = nn.Sequential(
             backbone,
             nn.Linear(1000, CLASS_INFO['num']),
