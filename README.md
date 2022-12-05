@@ -20,7 +20,25 @@ pip install -r requirements.txt
 
 ### Data
 
-- Download Dataset from [Kaggle](https://www.kaggle.com/c/dogs-vs-cats) or download processed Dataset from [here]()
+- Download Dataset from [Kaggle](https://www.kaggle.com/c/dogs-vs-cats) or download processed Dataset from [here](https://drive.google.com/file/d/1hI2s-U7PwlQUFc8eHtBtl1_TCLtDliId/view?usp=share_link)
+
+- Data in this format
+
+``` files
+|-- data
+    |-- train
+    |   |-- class 1
+    |   |-- class 2
+    |   `-- ...
+    |-- valid
+    |   |-- class 1
+    |   |-- class 2
+    |   `-- ...
+    `-- test
+        |-- class 1
+        |-- class 2
+        `-- ...
+```
 
 ### Config
 

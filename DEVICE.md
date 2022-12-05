@@ -3,6 +3,8 @@
 ## Python 3.10.6 + CUDA 11.8 (RTX 3060 6GB)
 
 ``` bash
+python3 -m pip install --upgrade pip --no-cache-dir
+
 pip install -r requirements.txt
 ```
 
