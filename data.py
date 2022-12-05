@@ -30,7 +30,7 @@ class LoadDataset(Dataset):
                     self.images.append(join(self.config['path'], classname, filename))
 
         self.transform = Compose([
-            Resize((224, 224)),
+            Resize(self.config['image_size']),
             ToTensor()
             #add Normalize
         ])
