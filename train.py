@@ -21,6 +21,10 @@ def train(train_config, valid_config):
     loss_fn = torch.nn.CrossEntropyLoss()
 
     highest_acc = 0
+
+    if os.path.exists(train_config['model_savepath']):
+        os.mkdir(train_config['model_savepath'])
+
     for epoch in range(train_config['epoch']):
         # Start Training
         model.train()
@@ -52,9 +56,9 @@ def train(train_config, valid_config):
 
         if accuracy >= highest_acc:
             highest_acc == accuracy
-            torch.save(model.state_dict(), os.path.join(train_config['model_savepath'] + f'training_epoch_{epoch}.pth'))
+            torch.save(model.state_dict(), os.path.join(train_config['model_savepath'], f'training_epoch_{epoch}.pth'))
 
 
 if __name__ == '__main__':
     train(train_config = TRAINING_CFG,
-          valid_config=VALID_CFG)
+          valid_config = VALID_CFG)
