@@ -1,4 +1,6 @@
-# Dogs and Cats Classification
+# Image Classification Task
+
+This repo build a classification pipeline and example for dogs and cats classification
 
 ## Dependencies and Installation
 
@@ -13,7 +15,6 @@ Refer to [DEVICE.md](./DEVICE.md) for more environments
 ``` bash
 pip install -r requirements.txt
 ```
-
 
 ## Prepare
 

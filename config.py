@@ -24,9 +24,4 @@ VALID_CFG = {
     'batch_size': 16,
 }
 
-TEST_CFG = {
-    'path': './data/test/',
-    'class': CLASS_INFO,
-    'image_size': 256,
-    'batch_size': 16,
-}
+MODEL_TYPE = ['custom', 'resnet18', 'resnet50']

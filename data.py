@@ -2,7 +2,7 @@ from os import listdir
 from os.path import join
 from torch.utils.data import Dataset
 
-from PIL import Image, ImageFilter
+from PIL import Image
 from torchvision.transforms import Compose, ToTensor, Normalize, Resize
 import torch
 
