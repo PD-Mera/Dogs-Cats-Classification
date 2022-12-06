@@ -30,7 +30,7 @@ def train(train_config, valid_config):
 
     highest_acc = 0
 
-    if os.path.exists(train_config['model_savepath']):
+    if not os.path.exists(train_config['model_savepath']):
         os.mkdir(train_config['model_savepath'])
 
     for epoch in range(train_config['epoch']):
@@ -64,7 +64,7 @@ def train(train_config, valid_config):
             correct, len(valid_loader.dataset), accuracy))
 
         if accuracy >= highest_acc:
-            highest_acc == accuracy
+            highest_acc = accuracy
             torch.save(model.state_dict(), os.path.join(train_config['model_savepath'], f'training_epoch_{epoch}.pth'))
             print(f"Saving best model to {os.path.join(train_config['model_savepath'], f'training_epoch_{epoch}.pth')}")
 

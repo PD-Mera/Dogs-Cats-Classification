@@ -18,3 +18,21 @@ pip3 install torch==1.9.0+cu111 \
              torchaudio==0.9.0 \
              -f https://download.pytorch.org/whl/torch_stable.html
 ```
+
+In `model.py`:
+
+``` python
+# Change
+backbone = resnet18(weights=ResNet18_Weights.DEFAULT)
+# To
+backbone = resnet18(pretrained=True)
+```
+
+In `train.py`
+
+``` python
+# Change
+loss = loss_fn(output, target)
+# To
+loss = loss_fn(output, torch.max(target, 1)[1])
+```

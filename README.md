@@ -56,10 +56,11 @@ python train.py
 
 Results after training 10 epochs
 
-| Model       | Training Info | Best Accuracy |
-| ----------- |:-------------:| :-----------: |
-| Resnet18    | Adam, lr=1e-5 |               |
-| Resnet50    |               |               |
+| Model       | Training Info | Best Accuracy | Pretrained              |
+| ----------- |:-------------:| :-----------: | :---------------------: |
+| Resnet18    | Adam, lr=1e-5 | 98.76%        | [Model](bit.ly/3UDT6jc) |
+| Resnet50    | Adam, lr=1e-5 | 99.40%        | [Model](bit.ly/3PbUA39) |
+| Resnet152   | Adam, lr=1e-5 | 99.40%        | [Model](bit.ly/3iHdoev) |
 
 
 ## TODO
@@ -70,5 +71,6 @@ Results after training 10 epochs
     - [x] Building Dataloader
     - [x] Building Training Pipeline
     - [x] Building Testing Pipeline
-- [ ] Training Dogs and Cats Classification Model
-- [ ] Expanding pipeline for Classification Tasks
+- [x] Training Dogs and Cats Classification Model
+- [x] Expanding pipeline for Classification Tasks
+- [ ] Add more pretrained model
