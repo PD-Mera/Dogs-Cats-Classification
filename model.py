@@ -26,6 +26,9 @@ def init_model(train_config, load_checkpoint = None):
         elif model_name == 'resnet50':
             backbone = resnet50(weights=ResNet50_Weights.DEFAULT)
 
+        elif model_name == 'resnet152':
+            backbone = resnet152(weights=ResNet152_Weights.DEFAULT)
+
         model = nn.Sequential(
             backbone,
             nn.Linear(1000, CLASS_INFO['num']),

@@ -27,6 +27,6 @@ VALID_CFG = {
     'batch_size': 16,
 }
 
-MODEL_AVAILABLE = ['custom', 'resnet18', 'resnet50']
+MODEL_AVAILABLE = ['custom', 'resnet18', 'resnet50', 'resnet152']
 OPTIMIZER_AVAILABLE = ['Adam']
 LOSS_AVAILABLE = ['custom', 'CE']
