@@ -1,6 +1,6 @@
-# Image Classification Task
+# Dogs and Cats Classification
 
-This repo build a classification pipeline and example for dogs and cats classification
+This repo build a classification pipeline for dogs and cats classification
 
 ## Dependencies and Installation
 
@@ -43,6 +43,24 @@ pip install -r requirements.txt
 ### Config
 
 Modify infomation about training in `config.py`
+
+### Train
+
+Simply run 
+
+``` bash
+python train.py
+```
+
+### Experiment Results
+
+Results after training 10 epochs
+
+| Model       | Training Info | Best Accuracy |
+| ----------- |:-------------:| :-----------: |
+| Resnet18    | Adam, lr=1e-5 |               |
+| Resnet50    |               |               |
+
 
 ## TODO
 

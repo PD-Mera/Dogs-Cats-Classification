@@ -43,12 +43,13 @@ def train(train_config, valid_config):
             loss = loss_fn(output, target)
             loss.backward()
             optimizer.step()
-            if batch_idx % 100 == 0:
+            if batch_idx % 10 == 0:
                 print('Train Epoch: {} [{}/{} ({:.0f}%)]\tLoss: {:.6f}'.format(
                     epoch, batch_idx * len(data), len(train_loader.dataset),
                     100. * batch_idx / len(train_loader), loss.item()))
 
         # Start Validating
+        model.eval()
         correct = 0
         for (data, target) in valid_loader:
             data, target = data.to(device), target.to(device)
@@ -65,7 +66,7 @@ def train(train_config, valid_config):
         if accuracy >= highest_acc:
             highest_acc == accuracy
             torch.save(model.state_dict(), os.path.join(train_config['model_savepath'], f'training_epoch_{epoch}.pth'))
-
+            print(f"Saving best model to {os.path.join(train_config['model_savepath'], f'training_epoch_{epoch}.pth')}")
 
 if __name__ == '__main__':
     train(train_config = TRAINING_CFG,

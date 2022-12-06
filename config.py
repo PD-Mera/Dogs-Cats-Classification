@@ -14,7 +14,7 @@ TRAINING_CFG = {
     'epoch': 10, 
     'batch_size': 128,
     'optimizer': 'Adam',
-    'learning_rate': 1e-3,
+    'learning_rate': 1e-5,
     'loss': 'CE',
     'model_savepath': './weights/',
     'load_checkpoint': None,
