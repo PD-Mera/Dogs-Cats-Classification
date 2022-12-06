@@ -9,7 +9,7 @@ CLASS_INFO = {
 TRAINING_CFG = {
     'path': './data/train/',
     'class': CLASS_INFO,
-    'image_size': (256, 256),
+    'image_size': (224, 224),
     'modelname': 'resnet18',
     'epoch': 10, 
     'batch_size': 128,
@@ -23,7 +23,7 @@ TRAINING_CFG = {
 VALID_CFG = {
     'path': './data/valid/',
     'class': CLASS_INFO,
-    'image_size': (256, 256),
+    'image_size': (224, 224),
     'batch_size': 16,
 }
 
