@@ -62,6 +62,14 @@ Results after training 10 epochs
 | Resnet50    | Adam, lr=1e-5 | 99.40%        | [Model](bit.ly/3PbUA39) |
 | Resnet152   | Adam, lr=1e-5 | 99.48%        | [Model](bit.ly/3iHdoev) |
 
+Some inference results
+
+
+
+![Dog](assets/dog.jpg "Dog Image") | ![Cat](assets/cat.jpg "Cat Image")
+
+
+
 
 ## TODO
 

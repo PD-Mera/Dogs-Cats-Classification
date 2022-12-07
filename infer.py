@@ -2,6 +2,7 @@ import os
 import torch
 from torchvision import transforms
 from PIL import Image, ImageFont, ImageDraw
+from tqdm import tqdm
 
 from model import init_model
 from config import *
@@ -36,7 +37,7 @@ def test(config):
 
     if os.path.isdir(config['path']):  
         print(f"Starting infer {len(os.listdir(config['path']))} images")
-        for imagelink in os.listdir(config['path']):
+        for imagelink in tqdm(os.listdir(config['path'])):
             if os.path.isdir(os.path.join(config['path'], imagelink)):
                 print(f"{os.path.join(config['path'], imagelink)} is a folder. Exiting..")
                 exit()
@@ -46,6 +47,8 @@ def test(config):
             classname = config['class']['name'][results]
             image = draw_to_image(image, classname)
             image.save(os.path.join(config['result_path'], imagelink))
+        print(f"Image saved to {config['result_path']}")
+         
     elif os.path.isfile(config['path']):  
         print(f"Starting infer 1 images")
         image = Image.open(config['path'])
@@ -54,6 +57,7 @@ def test(config):
         classname = config['class']['name'][results]
         image = draw_to_image(image, classname)
         image.save(os.path.join(config['result_path'], config['path'].split('/')[-1]))
+        print(f"Image saved to {os.path.join(config['result_path'], config['path'].split('/')[-1])}")
     else:  
         print("Save path invalid")
         exit()

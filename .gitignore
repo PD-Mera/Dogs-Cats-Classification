@@ -7,5 +7,6 @@ Repo-Init/
 
 data/
 weights/
+result/
 
 *.zip
