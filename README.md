@@ -66,8 +66,8 @@ Some inference results
 
 
 
-![Dog](assets/dog.jpg "Dog Image") | ![Cat](assets/cat.jpg "Cat Image")
-
+| ![Dog](asset/dog.jpg "Dog Image") | ![Cat](asset/cat.jpg "Cat Image") |
+| --------------------------------- | --------------------------------- |
 
 
 
