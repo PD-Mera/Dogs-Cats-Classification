@@ -14,9 +14,9 @@ class ClsfModel():
         return x
 
 
-def init_model(train_config, load_checkpoint = None):
-    assert train_config['modelname'] in MODEL_AVAILABLE, f'"modelname" in `config.py` must in {MODEL_AVAILABLE}'
-    model_name = train_config['modelname']
+def init_model(config):
+    assert config['modelname'] in MODEL_AVAILABLE, f'"modelname" in `config.py` must in {MODEL_AVAILABLE}'
+    model_name = config['modelname']
     if model_name == 'custom':
         model = ClsfModel()
     else:
@@ -36,7 +36,7 @@ def init_model(train_config, load_checkpoint = None):
         )
     
     
-    if load_checkpoint is not None:
-        model.load_state_dict(torch.load(load_checkpoint))
+    if config['load_checkpoint'] is not None:
+        model.load_state_dict(torch.load(config['load_checkpoint']))
  
     return model

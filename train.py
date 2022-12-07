@@ -10,7 +10,7 @@ from loss import init_loss
 
 
 def init_training_setting(train_config):
-    model = init_model(train_config, load_checkpoint = TRAINING_CFG['load_checkpoint'])
+    model = init_model(train_config)
     device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
     optimizer = init_optimizer(model, train_config)
     loss_fn = init_loss(train_config)
