@@ -11,7 +11,7 @@ from config import *
 def draw_to_image(image: Image, text: str):
     draw = ImageDraw.Draw(image)
     h, w = image.size
-    size = min(h, w) // 5
+    size = min(h, w) // 8
     font = ImageFont.truetype('asset/arial.ttf', size)
     left, top, right, bottom = draw.textbbox((0, 0), text, font = font)
     draw.rectangle((left-5, top-5, right+5, bottom+5), fill="black")
@@ -43,9 +43,11 @@ def test(config):
                 exit()
             image = Image.open(os.path.join(config['path'], imagelink))
             inputs = transform(image).unsqueeze(0).to(device)
-            results = torch.argmax(model(inputs)).cpu()
+            output = model(inputs).cpu()
+            results = torch.argmax(output)
+            prob = output[0][results]
             classname = config['class']['name'][results]
-            image = draw_to_image(image, classname)
+            image = draw_to_image(image, classname + " - " + str(prob))
             image.save(os.path.join(config['result_path'], imagelink))
         print(f"Image saved to {config['result_path']}")
          
@@ -53,14 +55,20 @@ def test(config):
         print(f"Starting infer 1 images")
         image = Image.open(config['path'])
         inputs = transform(image).unsqueeze(0).to(device)
-        results = torch.argmax(model(inputs)).cpu()
+        output = model(inputs).cpu()
+        results = torch.argmax(output)
+        prob = float(output[0][results])
         classname = config['class']['name'][results]
-        image = draw_to_image(image, classname)
+        image = draw_to_image(image, f"{classname} - {prob * 100:.2f}%")
         image.save(os.path.join(config['result_path'], config['path'].split('/')[-1]))
         print(f"Image saved to {os.path.join(config['result_path'], config['path'].split('/')[-1])}")
+
+    elif not os.path.exists(config['path']):
+        print("Infer path doesn't exist")
+        exit()
     else:  
         print("Save path invalid")
         exit()
 
 if __name__ == '__main__':
-    test(TESTING__CFG)
+    test(TESTING_CFG)

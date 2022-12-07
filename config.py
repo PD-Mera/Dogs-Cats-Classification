@@ -27,16 +27,6 @@ VALID_CFG = {
     'batch_size': 16,
 }
 
-TESTING__CFG = {
-    'path': '/media/mera/Mera/AI/Selfcode/Dogs-Cats-Classification/data/valid/dog/dog.24.jpg', # image path or folder path
-    'class': CLASS_INFO,
-    'image_size': (224, 224),
-    'modelname': 'resnet18',
-    'load_checkpoint': '/media/mera/Mera/AI/Selfcode/Dogs-Cats-Classification/weights/resnet18_final.pth',
-    'result_path': './result'
-}
-
-
 TESTING_CFG = {
     'path': './data/test/', # image path or folder path
     'class': CLASS_INFO,
