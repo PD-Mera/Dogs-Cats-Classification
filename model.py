@@ -6,7 +6,7 @@ from torchvision.models import *
 from config import *
 
 
-class ClsfModel():
+class ClsfModel(nn.Module):
     def __init__(self):
         super(ClsfModel, self).__init__()
         pass
