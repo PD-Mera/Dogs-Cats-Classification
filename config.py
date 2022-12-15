@@ -32,8 +32,8 @@ TESTING_CFG = {
     'class': CLASS_INFO,
     'image_size': (224, 224),
     'modelname': 'resnet18',
-    'load_checkpoint': '/media/mera/Mera/AI/Selfcode/Dogs-Cats-Classification/weights/resnet18_final.pth',
-    'result_path': './result'
+    'load_checkpoint': './weights/resnet18_final.pth',
+    'result_path': './results'
 }
 
 MODEL_AVAILABLE = ['custom', 'resnet18', 'resnet50', 'resnet152']
