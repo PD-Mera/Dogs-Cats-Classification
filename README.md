@@ -62,9 +62,13 @@ Results after training 10 epochs
 | Resnet50    | Adam, lr=1e-5 | 99.40%        | [Model](bit.ly/3PbUA39) |
 | Resnet152   | Adam, lr=1e-5 | 99.48%        | [Model](bit.ly/3iHdoev) |
 
+You can download weight file above and put in `weights` folder and run inference
+
+``` bash
+python infer.py
+```
+
 Some inference results
-
-
 
 | ![Dog](asset/dog.jpg "Dog Image") | ![Cat](asset/cat.jpg "Cat Image") |
 | --------------------------------- | --------------------------------- |
